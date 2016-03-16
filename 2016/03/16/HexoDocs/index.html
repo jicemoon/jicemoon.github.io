@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo Docs基本用法 | jicemoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="转自http://www.tuicool.com/articles/Nnuyu2A
+这部分Docs分了8块内容，分别从写作、前置声明、标签插件、资源目录、数据文件、服务器、生成器、部署。也许翻译得不得当，但是我尽量把主要内容呈现出来并加上自己的理解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Docs基本用法">
+<meta property="og:url" content="http://jicemoon.github.io/2016/03/16/HexoDocs/index.html">
+<meta property="og:site_name" content="jicemoon">
+<meta property="og:description" content="转自http://www.tuicool.com/articles/Nnuyu2A
+这部分Docs分了8块内容，分别从写作、前置声明、标签插件、资源目录、数据文件、服务器、生成器、部署。也许翻译得不得当，但是我尽量把主要内容呈现出来并加上自己的理解。">
+<meta property="og:image" content="http://jicemoon.github.io/post_img/20160316_hexoDocs_0.jpg">
+<meta property="og:image" content="http://jicemoon.github.io/post_img/20160316_hexoDocs_1.jpg">
+<meta property="og:image" content="http://jicemoon.github.io/post_img/20160316_hexoDocs_2.jpg">
+<meta property="og:updated_time" content="2016-03-16T13:39:02.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo Docs基本用法">
+<meta name="twitter:description" content="转自http://www.tuicool.com/articles/Nnuyu2A
+这部分Docs分了8块内容，分别从写作、前置声明、标签插件、资源目录、数据文件、服务器、生成器、部署。也许翻译得不得当，但是我尽量把主要内容呈现出来并加上自己的理解。">
+<meta name="twitter:image" content="http://jicemoon.github.io/post_img/20160316_hexoDocs_0.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="jicemoon" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">jicemoon</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">人生若只如初见</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:jicemoon@outlook.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jicemoon" title="GitHub"></a></li>
+                            
+                                <li id="简书"><a class="简书" target="_blank" href="http://www.jianshu.com/users/d3babf0c293b/timeline" title="简书"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/Docs/" style="font-size: 10px;">Docs</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/垂直居中/" style="font-size: 10px;">垂直居中</a> <a href="/tags/见缝插针/" style="font-size: 10px;">见缝插针</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">jicemoon</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">jicemoon</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">人生若只如初见</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:jicemoon@outlook.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jicemoon" title="GitHub"></a></li>
+                            
+                                <li id="简书"><a class="简书" target="_blank" href="http://www.jianshu.com/users/d3babf0c293b/timeline" title="简书"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-HexoDocs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/HexoDocs/" class="article-date">
+      <time datetime="2016-03-16T06:50:44.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo Docs基本用法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docs/">Docs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>转自<a href="http://www.tuicool.com/articles/Nnuyu2A" target="_blank" rel="external">http://www.tuicool.com/articles/Nnuyu2A</a></p>
+<p>这部分Docs分了8块内容，分别从写作、前置声明、标签插件、资源目录、数据文件、服务器、生成器、部署。也许翻译得不得当，但是我尽量把主要内容呈现出来并加上自己的理解。</p>
+<a id="more"></a>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><p>写作之前当然得先创建一个.md文件，使用命令 hexo new [layout] <title> ，其中layout默认为post，前面提过。 </title></p>
+<h3 id="Layout布局"><a href="#Layout布局" class="headerlink" title="Layout布局"></a>Layout布局</h3><p>Hexo提供了3种默认的布局， post 、 page 和 draft ，路径分别为： source/_posts 、 source 、 source/_draft 。如果你将在文章前置申明中，将layout设置为false，那么这篇文章将不会有任何的布局。 </p>
+<h3 id="Filename文件名"><a href="#Filename文件名" class="headerlink" title="Filename文件名"></a>Filename文件名</h3><p>Hexo会默认将文章的标题当做文件名，但是你可以编辑 _config.yml 配置文件中的 new_post_name 来改变默认的文件名。<br>例如：使用 hexo new hello 命令创建一篇为hello文章，Hexo会默认在_posts目录下给你创建一个名为hello.md的文件。假如你将 new_post_name 改为了 :year-:month-:day-:title.md ，那么hexo就自动帮你创建名为2015-05-16-hello.md（当前日期为2015年5月16）</p>
+<blockquote>
+<ul>
+<li>:title 文章标题 </li>
+<li>:year 创建年份 </li>
+<li>:month 月份，如4月为 04</li>
+<li>:day 日期 </li>
+<li>i_month 月份，单数字，比如4月就是 4 </li>
+<li>i_day 日期，单数字</li>
+</ul>
+</blockquote>
+<h3 id="Drafts草稿"><a href="#Drafts草稿" class="headerlink" title="Drafts草稿"></a>Drafts草稿</h3><p>Hexo提供草稿功能，在 _drafts 目录下的文章不会发表到网站上，你可以通过命令 hexo publish [layout] <title> 发布你的草稿，改命令会将文章移到 _posts 目录下。但是也可以设置 _config.yml 配置文件的 render_drafts 字段，使草稿默认发布到站点中。</title></p>
+<h3 id="Scaffolds模版"><a href="#Scaffolds模版" class="headerlink" title="Scaffolds模版"></a>Scaffolds模版</h3><p>当你使用 new 命令创建一篇文章的时候，Hexo会根据scaffolds目录中的模版帮你生成文章。假如执行 hexo new photo “My Gallery” ，Hexo会尝试在scaffolds目录中去寻找photo.md的模版文件，然后基于它创建标题为My Gallery的文章。<br>它的用处就是能够在模版中写入你某一类文章都要添加的共同内容，这样你基于模版创建文章的时候，就不用再重复写入那部分内容。</p>
+<h2 id="前置申明"><a href="#前置申明" class="headerlink" title="前置申明"></a>前置申明</h2><p>顾名思义，就是写在文章前面的一块内容，为了对文章进行某些设置。它有两种书写方式：</p>
+<h3 id="YAML方式，以三短线结束"><a href="#YAML方式，以三短线结束" class="headerlink" title="YAML方式，以三短线结束"></a>YAML方式，以三短线结束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">date: 2013/7/13 20:46:25</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3 id="JSON方式，以三分号结束"><a href="#JSON方式，以三分号结束" class="headerlink" title="JSON方式，以三分号结束"></a>JSON方式，以三分号结束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;title&quot;: &quot;Hello World&quot;,</span><br><span class="line">&quot;date&quot;: &quot;2013/7/13 20:46:25&quot;</span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
+<h3 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h3><blockquote>
+<ul>
+<li>layout: 布局，一般不用写，默认就行 </li>
+<li>title: 标题，这个必须要有 </li>
+<li>date: 时间</li>
+<li>updated: 修改时间 </li>
+<li>comments: 是否开启评论，默认为true </li>
+<li>tags: 文章标签</li>
+<li>categories: 文章分类 </li>
+<li>permalink: 文章永久链接，一般不用写，默认就行 </li>
+</ul>
+</blockquote>
+<p>在写标签和分类的时候，可能会有多个的情况，多个标签可以无序排列的方式书写，而分类可能会有多级分类的情况。如何书写举例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">categories: </span><br><span class="line">- Sports</span><br><span class="line">- Baseball</span><br><span class="line">tags:</span><br><span class="line">- Injury</span><br><span class="line">- Fight</span><br><span class="line">- Shocking</span><br></pre></td></tr></table></figure></p>
+<h2 id="标签插件"><a href="#标签插件" class="headerlink" title="标签插件"></a>标签插件</h2><p>这里说的标签插件不同于文章中的标签，它可以帮助你在文章中快速嵌入一些特殊的内容。</p>
+<h3 id="Block-Quote-块引用"><a href="#Block-Quote-块引用" class="headerlink" title="Block Quote-块引用"></a>Block Quote-块引用</h3><p>插入带有作者信息的应用，体现在Html上就是在 blockquote 标签下加入了 footer 标签。但是会给文章带来不一样的显示效果，书写格式非常简单。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看下面的例子就大概知道怎么书写了，第一种最简单的方式就等于markdown里的 &gt; 语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">I love you forever</span><br><span class="line">&#123;% endblockquote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% blockquote pengloo53 http://www.linux2me.com %&#125;</span><br><span class="line">I love you forever 我爱你</span><br><span class="line">&#123;% endblockquote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">I love you forever</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>显示效果为（主题为 light-ch ）：<br><img src="/post_img/20160316_hexoDocs_0.jpg" alt="显示效果"></p>
+<h3 id="Code-Block代码块"><a href="#Code-Block代码块" class="headerlink" title="Code Block代码块"></a>Code Block代码块</h3><p>在文章中插入代码块可以使用下面方式书写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实例如下<br><img src="/post_img/20160316_hexoDocs_1.jpg" alt="code block 实例"><br>显示效果<br><img src="/post_img/20160316_hexoDocs_2.jpg" alt="显示效果"></p>
+<h3 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h3><p>这个插件可以帮助您在文章中插入重要引述<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pullquote [class] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endpullquote %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="jsFiddle"><a href="#jsFiddle" class="headerlink" title="jsFiddle"></a>jsFiddle</h3><p>在文章中嵌入jsFiddle片段。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% jsfiddle shorttag [tabs] [skin] [width] [height] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Gist"><a href="#Gist" class="headerlink" title="Gist"></a>Gist</h3><p>嵌入Gist片段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% gist gist_id [filename] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="iFrame"><a href="#iFrame" class="headerlink" title="iFrame"></a>iFrame</h3><p>插入网页框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% iframe url [width] [height] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h3><p>插入图片，可以自定义大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% img [class names] /path/to/image [width] [height] [title text [alt text]] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p>插入带有target=”_blank”属性值的链接。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link text url [external] [title] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Include-Code"><a href="#Include-Code" class="headerlink" title="Include Code"></a>Include Code</h3><p>从资源目录中插入代码片段。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h3><p>在文章中插入Youtube视频。天朝的孩子就不用试了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% youtube video_id %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Vimeo"><a href="#Vimeo" class="headerlink" title="Vimeo"></a>Vimeo</h3><p>在文章中插入Vimeo视频。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% vimeo video_id %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Include-Posts"><a href="#Include-Posts" class="headerlink" title="Include Posts"></a>Include Posts</h3><p>包含其他文章的链接(<em>这个我测试没有出现效果, 不知道是不是我的写法有问题, 希望有人可以测试一下</em>)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_path slug %&#125;</span><br><span class="line">&#123;% post_link slug [title] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Include-Assets"><a href="#Include-Assets" class="headerlink" title="Include Assets"></a>Include Assets</h3><p>包含文章资源。 (<em>具体怎么使用，还不太明白，希望有人可以测试一下</em>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Raw"><a href="#Raw" class="headerlink" title="Raw"></a>Raw</h3><p>一些内容不想被主题渲染，可以使用该插件呈现原始状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="资源目录"><a href="#资源目录" class="headerlink" title="资源目录"></a>资源目录</h2><p>Assets指的是那些不在source目录下的资源，比如图片、CSS文件或者Javascript文件。Hexo提供一种更方便的方法来管理这些资源（Assets）。想使其生效，首先修改 post_asset_folder 字段的设置，将其值改为 true 。<br>当生效后，在你创建文章的时候，Hexo会创建一个同名目录，你可以将该文章关联的资源全部放到该目录下。这样就可以更加方便的使用它们了。<br>使用方法就是上面介绍过的标签插件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h2><p>有时，你可能会使用一些不在post中的模版数据，或者你想复用这些数据，那么你可以试用一下Hexo3中的『Data files』功能。这个特性加载source/_data目录中的YAML或者JSON文件，从而用到你的网站中。</p>
+<p>例如，在source/_data目录中添加 menu.yml 文件。内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Home: /</span><br><span class="line">Gallery: /gallery/</span><br><span class="line">Archives: /archives/</span><br></pre></td></tr></table></figure></p>
+<p>在模版中，你可以这样使用它。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for link in site.data.menu %&#125;</span><br><span class="line">  &lt;a href=&quot;&#123;&#123; link &#125;&#125;&quot;&gt;&#123;&#123; loop.key &#125;&#125;&lt;/a&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><h3 id="Hexo-server"><a href="#Hexo-server" class="headerlink" title="Hexo server"></a>Hexo server</h3><p>在Hexo3中，服务器模块从主模块中分开了，你可以通过安装 hexo-server 来使用它。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，通过运行命令 hexo server 来启动本地服务。可以通过 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 或者 <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> 来访问你的网站。服务启动后，Hexo会监视文件的改动情况并且自动更新，也就是说你修改网站内容后不必重启服务器就可以见到效果。<br>如果你想修改端口，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 5000</span><br></pre></td></tr></table></figure></p>
+<p>命令来指定端口。 </p>
+<p>hexo server -s 启动静态模式，在静态模式中，只有public文件夹下的文件才会被放到服务器上，并且文件监听功能关闭。你可以在运行 hexo g 命令后运行该命令，通常用于生产系统中。 </p>
+<p>hexo server -i 192.168.1.1 指定IP访问，可以替代默认的 0.0.0.0 . </p>
+<h3 id="Pow"><a href="#Pow" class="headerlink" title="Pow"></a>Pow</h3><p><strong>Pow</strong>是Mac上一个零配置的服务架构。通过 curl get.pow.cx | sh 命令下载并安装该软件；然后链接到项目文件夹中，步骤如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.pow</span><br><span class="line">ln -s /path/to/myapp index</span><br></pre></td></tr></table></figure></p>
+<p>通过上面命令，会在~/.pow目录下创建一个index的链接文件指向你的hexo根目录，然后你就可以通过访问 <a href="http://index.dev" target="_blank" rel="external">http://index.dev</a> 就可以看到你的主页了。 </p>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>这个很简单， hexo generate 一条命令生成静态站点。可以使用缩写 hexo g ，还可以显示你修改的文件并且重新生成，使用命令 hexo g –watch ，还用两种用法可以跟部署结合起来， hexo g -d or hexo d -g ，指的是生成后马上部署站点。 </p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>部署的方式有多种，这里我主要介绍一下Git的方式，因为GitHub提供Pages功能，可以直接将站点部署到Github上。</p>
+<p>主要就是设置 _config.yml 配置文件，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: 这里是自己的SSH或者Https路径</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></p>
+<p>这样就设置好了，注意将repo改成自己的。其他方式类似。部署命令很简单， hexo d 就OK了。 </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/14/CSS-middle/">
+                    CSS垂直居中
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写作"><span class="toc-number">1.</span> <span class="toc-text">写作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Layout布局"><span class="toc-number">1.1.</span> <span class="toc-text">Layout布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Filename文件名"><span class="toc-number">1.2.</span> <span class="toc-text">Filename文件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Drafts草稿"><span class="toc-number">1.3.</span> <span class="toc-text">Drafts草稿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scaffolds模版"><span class="toc-number">1.4.</span> <span class="toc-text">Scaffolds模版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前置申明"><span class="toc-number">2.</span> <span class="toc-text">前置申明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#YAML方式，以三短线结束"><span class="toc-number">2.1.</span> <span class="toc-text">YAML方式，以三短线结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON方式，以三分号结束"><span class="toc-number">2.2.</span> <span class="toc-text">JSON方式，以三分号结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数列表"><span class="toc-number">2.3.</span> <span class="toc-text">参数列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签插件"><span class="toc-number">3.</span> <span class="toc-text">标签插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-Quote-块引用"><span class="toc-number">3.1.</span> <span class="toc-text">Block Quote-块引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-Block代码块"><span class="toc-number">3.2.</span> <span class="toc-text">Code Block代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pull-Quote"><span class="toc-number">3.3.</span> <span class="toc-text">Pull Quote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsFiddle"><span class="toc-number">3.4.</span> <span class="toc-text">jsFiddle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gist"><span class="toc-number">3.5.</span> <span class="toc-text">Gist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iFrame"><span class="toc-number">3.6.</span> <span class="toc-text">iFrame</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Image"><span class="toc-number">3.7.</span> <span class="toc-text">Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link"><span class="toc-number">3.8.</span> <span class="toc-text">Link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Include-Code"><span class="toc-number">3.9.</span> <span class="toc-text">Include Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Youtube"><span class="toc-number">3.10.</span> <span class="toc-text">Youtube</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vimeo"><span class="toc-number">3.11.</span> <span class="toc-text">Vimeo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Include-Posts"><span class="toc-number">3.12.</span> <span class="toc-text">Include Posts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Include-Assets"><span class="toc-number">3.13.</span> <span class="toc-text">Include Assets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Raw"><span class="toc-number">3.14.</span> <span class="toc-text">Raw</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源目录"><span class="toc-number">4.</span> <span class="toc-text">资源目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据文件"><span class="toc-number">5.</span> <span class="toc-text">数据文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器"><span class="toc-number">6.</span> <span class="toc-text">服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-server"><span class="toc-number">6.1.</span> <span class="toc-text">Hexo server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pow"><span class="toc-number">6.2.</span> <span class="toc-text">Pow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器"><span class="toc-number">7.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-number">8.</span> <span class="toc-text">部署</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/16/HexoDocs/" data-title="Hexo Docs基本用法" data-url="http://jicemoon.github.io/2016/03/16/HexoDocs/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jicemoon"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/14/CSS-middle/" title="下一篇: CSS垂直居中">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/HexoDocs/">Hexo Docs基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/CSS-middle/">CSS垂直居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/html5-game-hardestGame/">HTML5游戏 - 见缝插针</a></li></ul>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 jicemoon
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
