@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Javascript中的位运算符 | jicemoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文章主要讲解JS中位运算符的基本说明和常见用法
+
+位运算符用于32位的数字上, 任何的数字操作都将转为32位, 运算结果再转化为JS数字
+
+js包括以下位运算符
+
+
+‘&amp;amp;’: AND运算符
+‘|’: OR运算符
+‘~’: 取反
+‘^’: 异或
+‘&amp;lt;&amp;lt;’: 左移
+‘&amp;gt;&amp;gt;’: 右移">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript中的位运算符">
+<meta property="og:url" content="http://jicemoon.github.io/2016/03/18/js-bit-operator/index.html">
+<meta property="og:site_name" content="jicemoon">
+<meta property="og:description" content="本文章主要讲解JS中位运算符的基本说明和常见用法
+
+位运算符用于32位的数字上, 任何的数字操作都将转为32位, 运算结果再转化为JS数字
+
+js包括以下位运算符
+
+
+‘&amp;amp;’: AND运算符
+‘|’: OR运算符
+‘~’: 取反
+‘^’: 异或
+‘&amp;lt;&amp;lt;’: 左移
+‘&amp;gt;&amp;gt;’: 右移">
+<meta property="og:updated_time" content="2016-03-18T13:53:53.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript中的位运算符">
+<meta name="twitter:description" content="本文章主要讲解JS中位运算符的基本说明和常见用法
+
+位运算符用于32位的数字上, 任何的数字操作都将转为32位, 运算结果再转化为JS数字
+
+js包括以下位运算符
+
+
+‘&amp;amp;’: AND运算符
+‘|’: OR运算符
+‘~’: 取反
+‘^’: 异或
+‘&amp;lt;&amp;lt;’: 左移
+‘&amp;gt;&amp;gt;’: 右移">
+  
+    <link rel="alternative" href="/atom.xml" title="jicemoon" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">jicemoon</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">人生若只如初见</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:jicemoon@outlook.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jicemoon" title="GitHub"></a></li>
+                            
+                                <li id="简书"><a class="简书" target="_blank" href="http://www.jianshu.com/users/d3babf0c293b/timeline" title="简书"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/Docs/" style="font-size: 10px;">Docs</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/位运算符/" style="font-size: 10px;">位运算符</a> <a href="/tags/垂直居中/" style="font-size: 10px;">垂直居中</a> <a href="/tags/见缝插针/" style="font-size: 10px;">见缝插针</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">jicemoon</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">jicemoon</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">人生若只如初见</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:jicemoon@outlook.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jicemoon" title="GitHub"></a></li>
+                            
+                                <li id="简书"><a class="简书" target="_blank" href="http://www.jianshu.com/users/d3babf0c293b/timeline" title="简书"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-js-bit-operator" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/18/js-bit-operator/" class="article-date">
+      <time datetime="2016-03-18T09:05:49.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript中的位运算符
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/WEB/">WEB</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/位运算符/">位运算符</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>本文章主要讲解JS中位运算符的基本说明和常见用法</p>
+<blockquote>
+<p>位运算符用于32位的数字上, 任何的数字操作都将转为32位, 运算结果再转化为JS数字</p>
+</blockquote>
+<p>js包括以下位运算符</p>
+<blockquote>
+<ul>
+<li>‘&amp;’: AND运算符</li>
+<li>‘|’: OR运算符</li>
+<li>‘~’: 取反</li>
+<li>‘^’: 异或</li>
+<li>‘&lt;&lt;’: 左移</li>
+<li>‘&gt;&gt;’: 右移</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<p>下面一一介绍</p>
+<h3 id="AND运算符’-amp-’-–-按位与"><a href="#AND运算符’-amp-’-–-按位与" class="headerlink" title="AND运算符’&amp;’ – 按位与"></a>AND运算符’&amp;’ – 按位与</h3><p>按位与运算符”&amp;”是双目运算符。 其功能是将参与运算的两数转成32位二进制后, 各对应的二进位相与。只有对应的两个二进位均为1时，结果位才为1 ，否则为0。<br>例如:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>&amp;<span class="number">2</span>); <span class="comment">//输出2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10</span>&amp;<span class="number">5</span>); <span class="comment">//输出0</span></span><br></pre></td></tr></table></figure></p>
+<p>说明(下述文字中的二进制, 前面(28位)均为0, 所以省略了)</p>
+<blockquote>
+<ul>
+<li>6的二进制位0110, 2的二进制位0010, 结果就是0010, 转成十进制也就是2</li>
+<li>10的二进制位为1010, 5的二进制位0101, 所以结果为0000, 也就是0</li>
+</ul>
+</blockquote>
+<p>这个运算符, 我一般用它来获取RGB颜色值中的蓝色, 例如:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rgbStr = <span class="string">"#6abc3a"</span>;</span><br><span class="line"><span class="comment">//将字符串转成十进制整数</span></span><br><span class="line"><span class="keyword">var</span> rgb = <span class="built_in">parseInt</span>(rgbStr.replace(<span class="regexp">/^\s*#|\s*$/g</span>, <span class="string">""</span>), <span class="number">16</span>);</span><br><span class="line"><span class="comment">//获取颜色值中的蓝色</span></span><br><span class="line"><span class="keyword">var</span> b = rgb&amp;<span class="number">0xff</span>;</span><br><span class="line"><span class="comment">//输出蓝色值得16进制字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(b.toString(<span class="number">16</span>));<span class="comment">//输出: 3a</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="OR运算符’-’-–-按位或"><a href="#OR运算符’-’-–-按位或" class="headerlink" title="OR运算符’|’ – 按位或"></a>OR运算符’|’ – 按位或</h3><p>按位或运算符“|”是双目运算符。 其功能是将参与运算的两数转成32位二进制后, 各对应的二进位相或。只要对应的二个二进位有一个为1时，结果位就为1。<br>例如:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span> | <span class="number">2</span>); <span class="comment">//输出6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10</span> | <span class="number">5</span>); <span class="comment">//输出15</span></span><br></pre></td></tr></table></figure></p>
+<p>说明(下述文字中的二进制, 前面(28位)均为0, 所以省略了)</p>
+<blockquote>
+<ul>
+<li>6的二进制位0110, 2的二进制位0010, 结果就是0110, 转成十进制也就是6</li>
+<li>10的二进制位为1010, 5的二进制位0101, 所以结果为1111, 也就是15</li>
+</ul>
+</blockquote>
+<p>这个运算符可以用来对数值进行取证, 用起来应该比Math.floor和Math.ceil方便, 实例如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">10.5</span> | <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10.3</span> | <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10.8</span> | <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p>以上的输出结果都是10</p>
+<blockquote>
+<p><strong>*注意</strong>: 无论正数还是负数, 此方法只是删除数字的小数部分, 所以*</p>
+<ul>
+<li>对正数, 其运行的结果和Math.floor是一样的;</li>
+<li>对负数, 其运行结果和Math.ceil是一样的</li>
+</ul>
+</blockquote>
+<p>下面是个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">8.35</span> | <span class="number">0</span>); <span class="comment">//输出: 8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">8.35</span>)); <span class="comment">//输出: 8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">8.35</span>)); <span class="comment">//输出: 9</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">-8.35</span> | <span class="number">0</span>); <span class="comment">//输出: -8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">-8.35</span>)); <span class="comment">//输出: -9</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">-8.35</span>)); <span class="comment">//输出: -8</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="取反运算符’-’"><a href="#取反运算符’-’" class="headerlink" title="取反运算符’~’"></a>取反运算符’~’</h3><p>取反运算符为单目运算符，具有右结合性。 其功能是对参与运算的数的各二进位按位取反</p>
+<p>下面也举一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(~<span class="number">2</span>); <span class="comment">//输出-3</span></span><br><span class="line"><span class="built_in">console</span>.log(~<span class="number">5</span>); <span class="comment">//输出-6</span></span><br></pre></td></tr></table></figure></p>
+<p>这里解说有点麻烦, 需要将所有的32位都列出来, 所以就不加说明了</p>
+<blockquote>
+<p><strong>*注</strong>: 到目前为止, 我没有在编程里面用到此运算符*</p>
+</blockquote>
+<h3 id="异或运算符’-’-–-按位异或"><a href="#异或运算符’-’-–-按位异或" class="headerlink" title="异或运算符’^’ – 按位异或"></a>异或运算符’^’ – 按位异或</h3><p>按位异或运算符“^”是双目运算符。 其功能是参与运算的两数各对应的二进位相异或，当两对应的二进位相异(即对应位数值不相同, 也就是其中一个为1,另一个为0)时，结果为1。</p>
+<p>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span> ^ <span class="number">2</span>); <span class="comment">//输出6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10</span> ^ <span class="number">5</span>); <span class="comment">//输出15</span></span><br></pre></td></tr></table></figure></p>
+<p>说明(下述文字中的二进制, 前面(28位)均为0, 所以省略了)</p>
+<blockquote>
+<ul>
+<li>6的二进制位0110, 2的二进制位0010, 结果就是0100, 转成十进制也就是4</li>
+<li>10的二进制位为1010, 5的二进制位0101, 所以结果为1111, 也就是15</li>
+</ul>
+</blockquote>
+<p>此运算符可以用来交换两个整型变量的值(不定义中间变量)<br>如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">125</span>, b = <span class="number">10</span>;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"a = "</span>+ a + <span class="string">", b = "</span> + b); </span><br><span class="line"><span class="comment">//输出: a = 10, b = 125</span></span><br></pre></td></tr></table></figure></p>
+<p>另外也可以判断两个整数是否相等, 如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a ^ b == <span class="number">0</span>; <span class="comment">//如果a,b相等, 为true, 否则为false</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="右移运算符’-gt-gt-’"><a href="#右移运算符’-gt-gt-’" class="headerlink" title="右移运算符’&gt;&gt;’"></a>右移运算符’&gt;&gt;’</h3><p>右移运算符“&gt;&gt;”是双目运算符, 其功能是把“&gt;&gt;”左边的运算数的各二进位全部右移若干位(不足位补0)，“&gt;&gt;”右边的数指定移动的位数。<br>右移n位的结果相当于整除2的n次方后的值<br>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>&gt;&gt;<span class="number">2</span>); <span class="comment">//输出: 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10</span>&gt;&gt;<span class="number">2</span>); <span class="comment">//输出: 2</span></span><br></pre></td></tr></table></figure></p>
+<p>说明(下述文字中的二进制, 前面(28位)均为0, 所以省略了)</p>
+<blockquote>
+<ul>
+<li>6的二进制位0110, 向右移两位, 结果就是0001, 转成十进制也就是1</li>
+<li>10的二进制位为1010, 向右移两位, 所以结果为0010, 也就是2</li>
+</ul>
+</blockquote>
+<p>说明一下<br>m &gt;&gt; n, 相当于m / (2^n)[ <em>这里的^不是异或运算符, 而是2的n次方</em> ], 转成js表达式就是Math.floor(m / Math.pow(2, n));<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">100</span>&gt;&gt;<span class="number">4</span>); <span class="comment">//输出: 6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">100</span> / <span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">4</span>)));  <span class="comment">//输出: 6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">120</span>&gt;&gt;<span class="number">3</span>); <span class="comment">//输出: 15</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">120</span> / <span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">3</span>)));  <span class="comment">//输出: 15</span></span><br></pre></td></tr></table></figure></p>
+<p>目前我主要用于RGB颜色值中R(红色)的分离, 并配合按位与’&amp;’运算符, 可以分离出G(绿色)<br>完整分离RGB颜色的代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rgbStr = <span class="string">"#6abc3a"</span>;</span><br><span class="line"><span class="comment">//将字符串转成十进制整数</span></span><br><span class="line"><span class="keyword">var</span> rgb = <span class="built_in">parseInt</span>(rgbStr.replace(<span class="regexp">/^\s*#|\s*$/g</span>, <span class="string">""</span>), <span class="number">16</span>);</span><br><span class="line"><span class="comment">//获取颜色值中的蓝色</span></span><br><span class="line"><span class="keyword">var</span> b = rgb&amp;<span class="number">0xff</span>;</span><br><span class="line"><span class="keyword">var</span> g = rgb&gt;&gt;<span class="number">8</span>&amp;<span class="number">0xff</span>;</span><br><span class="line"><span class="keyword">var</span> r = rgb&gt;&gt;<span class="number">16</span>;</span><br><span class="line"><span class="comment">//输出RGB/R/G/G色值的16进制字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"rgb = "</span> + rgb.toString(<span class="number">16</span>));<span class="comment">//输出: 6abc3a</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"r = "</span> + r.toString(<span class="number">16</span>));<span class="comment">//输出: 6a</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"g = "</span> + g.toString(<span class="number">16</span>));<span class="comment">//输出: bc</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"b = "</span> + b.toString(<span class="number">16</span>));<span class="comment">//输出: 3a</span></span><br><span class="line"><span class="comment">//下面可以分别对R/G/B值进行计算, 如下(将颜色值变亮)</span></span><br><span class="line">r = <span class="built_in">Math</span>.min(r*<span class="number">1.3</span>, <span class="number">255</span>);</span><br><span class="line">g = <span class="built_in">Math</span>.min(g*<span class="number">1.3</span>, <span class="number">255</span>);</span><br><span class="line">b = <span class="built_in">Math</span>.min(b*<span class="number">1.3</span>, <span class="number">255</span>);</span><br><span class="line"><span class="comment">//最后在将各个分量组合(要用到左移运算符)在一起, 就可以应用了</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以用来对数值取整, 方法/结果和’|’是一样的</p>
+<h3 id="左移运算符-‘-lt-lt-’"><a href="#左移运算符-‘-lt-lt-’" class="headerlink" title="左移运算符 ‘&lt;&lt;’"></a>左移运算符 ‘&lt;&lt;’</h3><p>左移运算符“&lt;&lt;”是双目运算符。左移n位就是乘以2的n次方。 其功能把“&lt;&lt;”左边的运算数的各二进位全部左移若干位，由“&lt;&lt;”右边的数指定移动的位数，高位丢弃，低位补0</p>
+<p>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>&lt;&lt;<span class="number">2</span>); <span class="comment">//相当于6*(2*2), 输出: 24</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">10</span>&lt;&lt;<span class="number">3</span>); <span class="comment">//相当于10*(2*2*2), 输出: 80</span></span><br></pre></td></tr></table></figure></p>
+<p>我常用于颜色分量的合成, 接着上述右移运算符的颜色例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newRGB = (r&lt;&lt;<span class="number">16</span>)+(r&lt;&lt;<span class="number">8</span>)+(g)</span><br><span class="line"><span class="comment">//或者可以用按位或 '|'</span></span><br><span class="line"><span class="comment">//var newRGB = (r&lt;&lt;16)|(r&lt;&lt;8)|(g)</span></span><br></pre></td></tr></table></figure></p>
+<p>下面是一个颜色值的完整例子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span><br><span class="line">      <span class="selector-class">.container</span>&#123; <span class="attribute">width</span>: <span class="number">250px</span>;<span class="attribute">text-align</span>: center; <span class="attribute">margin</span>: <span class="number">0</span> auto;&#125;</span><br><span class="line">      <span class="selector-id">#rect</span>&#123; <span class="attribute">width</span>: <span class="number">120px</span>; <span class="attribute">height</span>: <span class="number">65px</span>; <span class="attribute">background-color</span>: <span class="number">#68a28b</span>; <span class="attribute">margin</span>: <span class="number">10px</span> auto;&#125;</span><br><span class="line">      <span class="selector-tag">button</span>&#123;<span class="attribute">margin-right</span>: <span class="number">20px</span>;&#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"rect"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"light"</span>&gt;</span>加亮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"reset"</span>&gt;</span>重置<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"dark"</span>&gt;</span>变暗<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line">      <span class="keyword">var</span> rect = <span class="built_in">document</span>.getElementById(<span class="string">"rect"</span>);</span><br><span class="line">      <span class="keyword">var</span> light = <span class="built_in">document</span>.getElementById(<span class="string">"light"</span>);</span><br><span class="line">      <span class="keyword">var</span> reset = <span class="built_in">document</span>.getElementById(<span class="string">"reset"</span>);</span><br><span class="line">      <span class="keyword">var</span> dark = <span class="built_in">document</span>.getElementById(<span class="string">"dark"</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> initColor = <span class="string">"#68a28b"</span>;</span><br><span class="line">      <span class="keyword">var</span> newColor = initColor;</span><br><span class="line">      light.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        ld(<span class="number">1.1</span>, <span class="built_in">Math</span>.min, <span class="number">255</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">      dark.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        ld(<span class="number">0.9</span>, <span class="built_in">Math</span>.max, <span class="number">0</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">      reset.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        newColor = initColor;</span><br><span class="line">        rect.style.backgroundColor = newColor;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">ld</span>(<span class="params">factor, func, mom</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> obj = fl(newColor);</span><br><span class="line">        <span class="built_in">console</span>.log(obj);</span><br><span class="line">        obj.r = func(obj.r*factor, mom)|<span class="number">0</span>;</span><br><span class="line">        obj.g = func(obj.g*factor,mom)|<span class="number">0</span>;</span><br><span class="line">        obj.b = func(obj.b*factor, mom)|<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(obj);</span><br><span class="line">        newColor = <span class="string">"#"</span> + hc(obj).toString(<span class="number">16</span>);</span><br><span class="line">        rect.style.backgroundColor = newColor;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//分离R/G/B</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">fl</span>(<span class="params">rgb</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(rgb.constructor == <span class="built_in">String</span>)</span><br><span class="line">          rgb = <span class="built_in">parseInt</span>(rgb.replace(<span class="regexp">/^\s*#|\s*$/g</span>, <span class="string">""</span>), <span class="number">16</span>);</span><br><span class="line">        <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">        obj.r = rgb&gt;&gt;<span class="number">16</span>;</span><br><span class="line">        obj.g = rgb&gt;&gt;<span class="number">8</span>&amp;<span class="number">0xff</span>;</span><br><span class="line">        obj.b = rgb&amp;<span class="number">0xff</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//合并RGB</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">hc</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (obj.r&lt;&lt;<span class="number">16</span>)|(obj.g&lt;&lt;<span class="number">8</span>)|(obj.b);</span><br><span class="line">      &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/16/HexoDocs/">
+                    Hexo Docs基本用法
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#AND运算符’-amp-’-–-按位与"><span class="toc-number">1.</span> <span class="toc-text">AND运算符’&’ – 按位与</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OR运算符’-’-–-按位或"><span class="toc-number">2.</span> <span class="toc-text">OR运算符’|’ – 按位或</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取反运算符’-’"><span class="toc-number">3.</span> <span class="toc-text">取反运算符’~’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异或运算符’-’-–-按位异或"><span class="toc-number">4.</span> <span class="toc-text">异或运算符’^’ – 按位异或</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右移运算符’-gt-gt-’"><span class="toc-number">5.</span> <span class="toc-text">右移运算符’>>’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#左移运算符-‘-lt-lt-’"><span class="toc-number">6.</span> <span class="toc-text">左移运算符 ‘<<’</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/18/js-bit-operator/" data-title="Javascript中的位运算符" data-url="http://jicemoon.github.io/2016/03/18/js-bit-operator/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jicemoon"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/16/HexoDocs/" title="下一篇: Hexo Docs基本用法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/js-bit-operator/">Javascript中的位运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/HexoDocs/">Hexo Docs基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/CSS-middle/">CSS垂直居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/html5-game-hardestGame/">HTML5游戏 - 见缝插针</a></li></ul>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 jicemoon
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
