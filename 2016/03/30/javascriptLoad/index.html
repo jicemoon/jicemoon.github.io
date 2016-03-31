@@ -3,39 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>HTML5游戏 - 见缝插针 | jicemoon</title>
+  <title>Web动态加载JS外部文件(script标签) | jicemoon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相信大家都玩过这个游戏, 这是我为了练习所学的Canvas而写的一个小游戏, 闲话少说, 下面进入整体.
-游戏源码下载
-首先说明一下文件夹中各个文件的作用: 
-
-index.html ==&amp;gt; 用来测试游戏源码的网页文件;
-css/index.css ==&amp;gt; 测试游戏源码的网页样式文件;
-js/index.js ==&amp;gt; 测试游戏源码的js文件
-js/JicemoonMobileTo">
+  <meta name="description" content="( 摘自高性能Javascript )文档对象模型（DOM）允许你使用JavaScript 动态创建HTML的几乎全部文档内容。其根本在于，&amp;lt;script&amp;gt;元素与页面其他元素没有什么不同：引用变量可以通过DOM进行检索，可以从文档中移动、删除，也可以被创建.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5游戏 - 见缝插针">
-<meta property="og:url" content="http://jicemoon.github.io/2016/03/11/html5-game-hardestGame/index.html">
+<meta property="og:title" content="Web动态加载JS外部文件(script标签)">
+<meta property="og:url" content="http://jicemoon.github.io/2016/03/30/javascriptLoad/index.html">
 <meta property="og:site_name" content="jicemoon">
-<meta property="og:description" content="相信大家都玩过这个游戏, 这是我为了练习所学的Canvas而写的一个小游戏, 闲话少说, 下面进入整体.
-游戏源码下载
-首先说明一下文件夹中各个文件的作用: 
-
-index.html ==&amp;gt; 用来测试游戏源码的网页文件;
-css/index.css ==&amp;gt; 测试游戏源码的网页样式文件;
-js/index.js ==&amp;gt; 测试游戏源码的js文件
-js/JicemoonMobileTo">
-<meta property="og:updated_time" content="2016-03-16T13:23:08.260Z">
+<meta property="og:description" content="( 摘自高性能Javascript )文档对象模型（DOM）允许你使用JavaScript 动态创建HTML的几乎全部文档内容。其根本在于，&amp;lt;script&amp;gt;元素与页面其他元素没有什么不同：引用变量可以通过DOM进行检索，可以从文档中移动、删除，也可以被创建.">
+<meta property="og:updated_time" content="2016-03-31T12:50:24.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5游戏 - 见缝插针">
-<meta name="twitter:description" content="相信大家都玩过这个游戏, 这是我为了练习所学的Canvas而写的一个小游戏, 闲话少说, 下面进入整体.
-游戏源码下载
-首先说明一下文件夹中各个文件的作用: 
-
-index.html ==&amp;gt; 用来测试游戏源码的网页文件;
-css/index.css ==&amp;gt; 测试游戏源码的网页样式文件;
-js/index.js ==&amp;gt; 测试游戏源码的js文件
-js/JicemoonMobileTo">
+<meta name="twitter:title" content="Web动态加载JS外部文件(script标签)">
+<meta name="twitter:description" content="( 摘自高性能Javascript )文档对象模型（DOM）允许你使用JavaScript 动态创建HTML的几乎全部文档内容。其根本在于，&amp;lt;script&amp;gt;元素与页面其他元素没有什么不同：引用变量可以通过DOM进行检索，可以从文档中移动、删除，也可以被创建.">
   
     <link rel="alternative" href="/atom.xml" title="jicemoon" type="application/atom+xml">
   
@@ -241,11 +220,11 @@ js/JicemoonMobileTo">
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-html5-game-hardestGame" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-javascriptLoad" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/11/html5-game-hardestGame/" class="article-date">
-      <time datetime="2016-03-11T14:07:44.000Z" itemprop="datePublished">2016-03-11</time>
+      <a href="/2016/03/30/javascriptLoad/" class="article-date">
+      <time datetime="2016-03-30T03:15:49.000Z" itemprop="datePublished">2016-03-30</time>
 </a>
     </div>
   
@@ -258,7 +237,7 @@ js/JicemoonMobileTo">
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5游戏 - 见缝插针
+      Web动态加载JS外部文件(script标签)
     </h1>
   
 
@@ -267,13 +246,13 @@ js/JicemoonMobileTo">
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/WEB/">WEB</a>
+    <a class="article-category-link" href="/categories/Web/">Web</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/见缝插针/">见缝插针</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态加载/">动态加载</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -283,63 +262,24 @@ js/JicemoonMobileTo">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>相信大家都玩过这个游戏, 这是我为了练习所学的Canvas而写的一个小游戏, 闲话少说, 下面进入整体.</p>
-<p><a href="https://github.com/jicemoon/HardestGame" target="_blank" rel="external">游戏源码下载</a></p>
-<p>首先说明一下文件夹中各个文件的作用: </p>
-<ol>
-<li><em>index.html</em> ==&gt; 用来测试游戏源码的网页文件;</li>
-<li><em>css/index.css</em> ==&gt; 测试游戏源码的网页样式文件;</li>
-<li><em>js/index.js</em> ==&gt; 测试游戏源码的js文件</li>
-<li><em>js/JicemoonMobileTouch.js</em> ==&gt; 一个简单的touch兼容库(我自己写的, 有在github分享)</li>
-<li><em>js/HardestGame.js</em> ==&gt; 此文件为游戏主要部分, 内含注释</li>
-</ol>
+        <p>( 摘自<em>高性能Javascript</em> )<br>文档对象模型（DOM）允许你使用JavaScript 动态创建HTML的几乎全部文档内容。其根本在于，&lt;script&gt;元素与页面其他元素没有什么不同：引用变量可以通过DOM进行检索，可以从文档中移动、删除，也可以被创建. </p>
 <a id="more"></a>
-<p>这里面我主要想说的是<em>js/HardestGame.js</em>这个文件</p>
-<p>其实这里面都有详细的注释, 首先我想重点说的是<em>extendClass</em>(文件中29-37行)这个函数, 代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断是否已经定义此方法</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">window</span>[<span class="string">"extendClass"</span>])&#123;</span><br><span class="line">    <span class="built_in">window</span>[<span class="string">"extendClass"</span>] = <span class="function"><span class="keyword">function</span> (<span class="params">sonClass, parentClass</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//判断所传参数是否为函数对象</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> parentClass === <span class="string">"function"</span> &amp;&amp; <span class="keyword">typeof</span> sonClass === <span class="string">"function"</span>) &#123;</span><br><span class="line">            <span class="comment">//这一句是继承最主要的部分</span></span><br><span class="line">            sonClass.prototype = <span class="keyword">new</span> ((<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;).prototype = parentClass.prototype).constructor();</span><br><span class="line">            <span class="comment">//重新定义子类对构造函数为其本身(因为经过上一句的赋值, 子类的构造函数变成了父类的构造函数)</span></span><br><span class="line">            sonClass.prototype.constructor = sonClass;</span><br><span class="line">            <span class="comment">//用super属性记录父类, 以便在子类中引用</span></span><br><span class="line">            sonClass.prototype.super = parentClass;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">script.src = <span class="string">"file1.js"</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName_r(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</span><br></pre></td></tr></table></figure>
+<p>新的&lt;script&gt;元素加载file1.js源文件。此文件当元素添加到页面之后立刻开始下载。此技术的重点在于：无论在何处启动下载，文件的下载和运行都不会阻塞其他页面处理过程。你甚至可以将这些代码放在&lt;head&gt;部分而不会对其余部分的页面代码造成影响（除了用于下载文件的HTTP 连接）。</p>
+<p>当文件使用动态脚本节点下载时，返回的代码通常立即执行（除了Firefox和Opera，他们将等待此前的所有动态脚本节点执行完毕）。当脚本是“自运行”类型时这一机制运行正常，但是如果脚本只包含供页面其他脚本调用调用的接口，则会带来问题。这种情况下，你需要跟踪脚本下载完成并准备妥善的情况。可以使用动态&lt;script&gt;节点发出事件得到相关信息。</p>
+<p>Firefox, Opera, Chorme, IE11+ 和Safari3+会在&lt;script&gt;节点接收完成之后发出一个load 事件。你可以监听这一事件，以得到脚本准备好的通知：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>)</span><br><span class="line">script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line"><span class="comment">//Firefox, Opera, Chrome, Safari 3+</span></span><br><span class="line">script.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Script loaded!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">script.src = <span class="string">"file1.js"</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName_r(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</span><br></pre></td></tr></table></figure></p>
+<p>Internet Explorer(IE10及以下版本)支持另一种实现方式，它发出一个readystatechange事件。&lt;script&gt;元素有一个readyState属性，它的值随着下载外部文件的过程而改变。readyState 有五种取值：</p>
 <blockquote>
-<p>如果大家想了解<strong>继承</strong>这一部分, 大家可以看一下<a href="http://www.360doc.com/content/15/0731/12/11984479_488530968.shtml" target="_blank" rel="external">这篇文章</a></p>
+<ul>
+<li>uninitialized: 默认状态</li>
+<li>loading: 下载开始</li>
+<li>loaded: 下载完成</li>
+<li>interactive: 下载完成但尚不可用</li>
+<li>complete: 所有数据已经准备好</li>
+</ul>
 </blockquote>
-<h3 id="基类Circle"><a href="#基类Circle" class="headerlink" title="基类Circle"></a>基类Circle</h3><p>基类Circle里主要定义了一些基本的属性和方法: </p>
-<ul>
-<li>x/y: 圆形所在的位置;</li>
-<li>radius: 圆形的半径;</li>
-<li>fillStyle: 圆形的填充颜色(可以设置为css支持的颜色值, 如”#ff0000”,”rgba(240,235,222,0.4)”等, 或者渐变/图片填充, 这一部分请参考canvas - context的fillStyle属性);</li>
-<li>strokeStyle: 圆形的描边颜色, 参考上述fillStyle属性;</li>
-<li>update: 此方法是为了更新圆形的信息(就是上面的属性)而设置的;</li>
-<li>paint: 更新后, 根据上述属性值, 将该对象(这里绘制的是一个圆)重新绘制到画布(即参数context所在的画布–canvas.getContext(“2d”))上;<br>具体的自己看代码就可以了, 不明白的可以给我发邮件</li>
-</ul>
-<h3 id="中心大圆CircleCenter"><a href="#中心大圆CircleCenter" class="headerlink" title="中心大圆CircleCenter"></a>中心大圆CircleCenter</h3><p>这个是定义的在中心位置的那个大圆, 继承自上述的Circle, 因为这个圆是静止不动的, 并没有做其他的扩充, 也不需要重写update, 这里可以看到在构造函数中, 利用super属性调用了父类的构造函数, 代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.super.call(<span class="keyword">this</span>, ROTATION_CENTER.x,ROTATION_CENTER.y,RADIUS_BIG,fillStyle, strokeStyle);</span><br></pre></td></tr></table></figure></p>
-<p>从上述代码可以看出, 只是用开始时定义的变量(静态)固定了位置/大小等属性</p>
-<h3 id="跟随旋转的小圆CircleRotation"><a href="#跟随旋转的小圆CircleRotation" class="headerlink" title="跟随旋转的小圆CircleRotation"></a>跟随旋转的小圆CircleRotation</h3><p>这个类也是继承自Circle, 但是做了一些扩展, 扩展的属性和方法:</p>
-<ul>
-<li>angle: 此小圆当前所在的角度(弧度为单位)</li>
-<li>resetPosition: 根据当前的角度(angle), 重新计算此小圆的位置;<br>另外重写了update和paint, update就不必说了, paint并不是完全重写, 只是添加了一部分代码, 其作用是绘制此小圆到中心大圆的一条直线(就是”见缝插针”里的”针”)</li>
-</ul>
-<h3 id="用来发射的小圆CircleBullet"><a href="#用来发射的小圆CircleBullet" class="headerlink" title="用来发射的小圆CircleBullet"></a>用来发射的小圆CircleBullet</h3><p>即代码注释中所说的子弹, 这个类也继承自Circle, 此类没有做扩展, 只是重写了两个方法, 重写update, 为了实现向上运动的效果; 另外一个paint, 因为子弹上面有子弹编号的文字, 所以在此方法中添加了文字绘制的部分;</p>
-<hr>
-<p>剩下的代码是游戏控制部分, 也就是Game类</p>
-<h3 id="游戏控制类Game"><a href="#游戏控制类Game" class="headerlink" title="游戏控制类Game"></a>游戏控制类Game</h3><p>构造函数就不多说了, 自己看注释, 很详细了<br>主要详细说一下可能用到的属性和方法(注释中没有提到的)</p>
-<ul>
-<li>centerCircle: 中心位置的圆形, 一个CircleCenter类的对象, 此属性是只读, 外部可以在init初始化后调用修改它的一些属性(位置/颜色等);</li>
-<li>rotationCircles: 当前(关卡)跟随旋转的小圆数组, 一个CircleRotation类的对象数组;</li>
-<li>bulletCircles: 当前(关卡)未发射的子弹(小圆), 一个CircleBullet类的对象数组;</li>
-<li>rotationSpeed: 当前(关卡)大圆旋转的速度;</li>
-<li>mobileTouch: JicemoonMobileTouch对象, 用来控制触摸或者鼠标事件的对象;</li>
-<li>levelSpaceTime: 关卡之间停留的秒数, 也就是本关卡结束到下一关卡开始之间的时间间隔(在没有设置levelSuccessHandle参数时有效);</li>
-<li>init: 初始化游戏;</li>
-<li>gameStart: 游戏开始;</li>
-<li>gamePause: 暂停游戏;</li>
-<li>gameContinue: 游戏暂停后继续, 参数表示是否重新开始本关卡;</li>
-<li>gameOver: 游戏结束;</li>
-<li>update: 更新游戏内所有对象的位置等信息;</li>
-<li>paint: 将游戏内所有对象会知道画布上;</li>
-<li>levelChange: 改变关卡, 此方法是在切换关卡是用来重置下一关卡或者本关卡(重玩本关卡时)的数据;</li>
-<li>checkCollision: 判断游戏是否成功过关;</li>
-<li>tapHandle: 鼠标或触摸后出发的事件监听(在isCanTap为true时, 发射子弹);</li>
-<li><strong>levelSuccessHandle: 成功过关后调用的对外接口;</strong></li>
-<li><strong>gameOverHandle: 游戏结束后调用的对外接口;</strong></li>
-</ul>
-<p>介绍就到这里了, 有什么问题可以Email我</p>
+<p>微软文档上说，在&lt;script&gt;元素的生命周期中，readyState 的这些取值不一定全部出现，但并没有指出哪些取值总会被用到。实践中，我们最感兴趣的是“loaded”和“complete”状态。Internet Explorer 对这两个readyState值所表示的最终状态并不一致，有时&lt;script&gt;元素会得到“loader”却从不出现“complete”，但另外一些情况下出现“complete”而用不到“loaded”。最安全的办法就是在readystatechange 事件中检查这两种状态，并且当其中一种状态出现时，删除readystatechange事件句柄（保证事件不会被处理两次）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>)</span><br><span class="line">script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line"><span class="comment">//Internet Explorer</span></span><br><span class="line">script.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (script.readyState == <span class="string">"loaded"</span> || script.readyState == <span class="string">"complete"</span>)&#123;</span><br><span class="line">        script.onreadystatechange = <span class="literal">null</span>;</span><br><span class="line">        alert(<span class="string">"Script loaded."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">script.src = <span class="string">"file1.js"</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName_r(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</span><br></pre></td></tr></table></figure></p>
+<p>大多数情况下，你希望调用一个函数就可以实现JavaScript 文件的动态加载。下面的函数封装了标准实现和IE 实现所需的功能：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">url, callback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement (<span class="string">"script"</span>)</span><br><span class="line">    script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">    <span class="keyword">if</span> (script.readyState)&#123; <span class="comment">//IE</span></span><br><span class="line">        script.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (script.readyState == <span class="string">"loaded"</span> || script.readyState == <span class="string">"complete"</span>)&#123;</span><br><span class="line">                script.onreadystatechange = <span class="literal">null</span>;</span><br><span class="line">                callback();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//Others</span></span><br><span class="line">        script.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            callback();</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    script.src = url;</span><br><span class="line">    <span class="built_in">document</span>.getElementsByTagName_r(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -351,12 +291,12 @@ js/JicemoonMobileTo">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/14/CSS-middle/">
-                    CSS垂直居中
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/18/js-bit-operator/">
+                    Javascript中的位运算符
                 </a>
             </div>
-        
         
     </nav>
 
@@ -365,7 +305,7 @@ js/JicemoonMobileTo">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基类Circle"><span class="toc-number">1.</span> <span class="toc-text">基类Circle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中心大圆CircleCenter"><span class="toc-number">2.</span> <span class="toc-text">中心大圆CircleCenter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟随旋转的小圆CircleRotation"><span class="toc-number">3.</span> <span class="toc-text">跟随旋转的小圆CircleRotation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用来发射的小圆CircleBullet"><span class="toc-number">4.</span> <span class="toc-text">用来发射的小圆CircleBullet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏控制类Game"><span class="toc-number">5.</span> <span class="toc-text">游戏控制类Game</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -412,7 +352,7 @@ js/JicemoonMobileTo">
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/11/html5-game-hardestGame/" data-title="HTML5游戏 - 见缝插针" data-url="http://jicemoon.github.io/2016/03/11/html5-game-hardestGame/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/30/javascriptLoad/" data-title="Web动态加载JS外部文件(script标签)" data-url="http://jicemoon.github.io/2016/03/30/javascriptLoad/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -436,15 +376,15 @@ js/JicemoonMobileTo">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/14/CSS-middle/" title="上一篇: CSS垂直居中">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/03/18/js-bit-operator/" title="下一篇: Javascript中的位运算符">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
