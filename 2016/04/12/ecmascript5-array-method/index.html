@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ECMAScript 5中的数组方法 | jicemoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="(JavaScript权威指南 笔记)
+ECMAScript 5定义了几个新的数组方法, 根据功能可以分为
+
+
+遍历 - forEach;
+映射 - map;
+过滤 - filter;
+检测 - every和some;
+简化 - reduce和reduceRight;
+搜索 - indexOf和lastIndexOf;
+判断 - Array.isArray;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript 5中的数组方法">
+<meta property="og:url" content="http://jicemoon.github.io/2016/04/12/ecmascript5-array-method/index.html">
+<meta property="og:site_name" content="jicemoon">
+<meta property="og:description" content="(JavaScript权威指南 笔记)
+ECMAScript 5定义了几个新的数组方法, 根据功能可以分为
+
+
+遍历 - forEach;
+映射 - map;
+过滤 - filter;
+检测 - every和some;
+简化 - reduce和reduceRight;
+搜索 - indexOf和lastIndexOf;
+判断 - Array.isArray;">
+<meta property="og:updated_time" content="2016-04-12T13:07:00.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMAScript 5中的数组方法">
+<meta name="twitter:description" content="(JavaScript权威指南 笔记)
+ECMAScript 5定义了几个新的数组方法, 根据功能可以分为
+
+
+遍历 - forEach;
+映射 - map;
+过滤 - filter;
+检测 - every和some;
+简化 - reduce和reduceRight;
+搜索 - indexOf和lastIndexOf;
+判断 - Array.isArray;">
+  
+    <link rel="alternative" href="/atom.xml" title="jicemoon" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">jicemoon</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">人生若只如初见</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:jicemoon@outlook.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jicemoon" title="GitHub"></a></li>
+                            
+                                <li id="简书"><a class="简书" target="_blank" href="http://www.jianshu.com/users/d3babf0c293b/timeline" title="简书"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/Docs/" style="font-size: 10px;">Docs</a> <a href="/tags/ECMAScript5/" style="font-size: 10px;">ECMAScript5</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/Web/" style="font-size: 20px;">Web</a> <a href="/tags/ng-repeat/" style="font-size: 10px;">ng-repeat</a> <a href="/tags/位运算符/" style="font-size: 10px;">位运算符</a> <a href="/tags/动态加载/" style="font-size: 10px;">动态加载</a> <a href="/tags/垂直居中/" style="font-size: 10px;">垂直居中</a> <a href="/tags/日期格式化/" style="font-size: 10px;">日期格式化</a> <a href="/tags/见缝插针/" style="font-size: 10px;">见缝插针</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">jicemoon</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">jicemoon</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">人生若只如初见</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:jicemoon@outlook.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jicemoon" title="GitHub"></a></li>
+                            
+                                <li id="简书"><a class="简书" target="_blank" href="http://www.jianshu.com/users/d3babf0c293b/timeline" title="简书"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-ecmascript5-array-method" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/ecmascript5-array-method/" class="article-date">
+      <time datetime="2016-04-12T02:08:42.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMAScript 5中的数组方法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript5/">ECMAScript5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>(<em>JavaScript权威指南</em> 笔记)</p>
+<p>ECMAScript 5定义了几个新的数组方法, 根据功能可以分为</p>
+<blockquote>
+<ul>
+<li>遍历 - forEach;</li>
+<li>映射 - map;</li>
+<li>过滤 - filter;</li>
+<li>检测 - every和some;</li>
+<li>简化 - reduce和reduceRight;</li>
+<li>搜索 - indexOf和lastIndexOf;</li>
+<li>判断 - Array.isArray;</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<p>下面一一介绍</p>
+<h3 id="forEach-遍历"><a href="#forEach-遍历" class="headerlink" title="forEach - 遍历"></a>forEach - 遍历</h3><p>函数原形:</p>
+<blockquote>
+<p>arr.forEach(func);</p>
+</blockquote>
+<p>此方法会从头到尾的遍历数组, 并为每个元素调用参数中指定的函数, 没有返回值.<br>参数func的原形:</p>
+<blockquote>
+<p>function func(value[, index[, arr]]);</p>
+</blockquote>
+<p>参数含义:</p>
+<blockquote>
+<ul>
+<li>value: 数组元素值;</li>
+<li>index: 元素索引;</li>
+<li>arr: 当前数组本身;</li>
+</ul>
+</blockquote>
+<p>例如:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">//计算数组元素的和</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>)</span>&#123; sum += value;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"当前数组的和为: "</span> + sum); <span class="comment">// =&gt; 15</span></span><br><span class="line"><span class="comment">//每个数组元素的值自加1</span></span><br><span class="line">data.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">v, i, a</span>)</span>&#123; arr[i] = v + <span class="number">1</span>;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(data); <span class="comment">// =&gt; [2,3,4,5,6]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>: forEach会自动跳过稀疏数组中缺少的元素, 如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>];</span><br><span class="line">arr[<span class="number">3</span>] = <span class="literal">null</span>;</span><br><span class="line">arr[<span class="number">4</span>] = <span class="literal">undefined</span>;</span><br><span class="line">arr[<span class="number">5</span>] = <span class="number">9</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">value,index, arr</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(index + <span class="string">" --&gt; "</span> + value);</span><br><span class="line">&#125;</span><br><span class="line">arr.forEach(func);</span><br></pre></td></tr></table></figure></p>
+<p>上例中的输出结果:</p>
+<blockquote>
+<p>0 –&gt; 0<br>1 –&gt; 1<br>3 –&gt; null<br>4 –&gt; undefined<br>5 –&gt; 9</p>
+</blockquote>
+<p>对应js的实现函数如下(输出结果于上例相同):<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接上例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myForEach</span>(<span class="params">a, func</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//for(var i = 0; i &lt; a.length; i++)&#123;</span></span><br><span class="line">  <span class="comment">//  if(i in a)</span></span><br><span class="line">  <span class="comment">//    func(arr[i], i, a);</span></span><br><span class="line">  <span class="comment">//&#125;</span></span><br><span class="line">  <span class="comment">//或者</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> a)&#123;</span><br><span class="line">    func(arr[i], i, a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">myForEach(arr, func);</span><br></pre></td></tr></table></figure></p>
+<p>还有, <em>此方法无法在所有元素都传递给调用的函数之前终止遍历</em> . 也就是说, 没有像for循环中使用的相应的break语句. 如果要提前终止, 必须把forEach方法放在try块中, 并能抛出一个异常;</p>
+<h3 id="map-映射"><a href="#map-映射" class="headerlink" title="map - 映射"></a>map - 映射</h3><blockquote>
+<p>newArr = arr.map(func);</p>
+</blockquote>
+<p>将调用数组的每个元素传递给参数中指定的函数(这里是func), func的返回值将作为map返回数组对应位置的新元素;<br>参数func的原形和上述forEach是一样的, 只是需要返回值:</p>
+<blockquote>
+<p>function func(value[, index[, arr]]);</p>
+</blockquote>
+<p>参数含义:</p>
+<blockquote>
+<ul>
+<li>value: 数组元素值;</li>
+<li>index: 元素索引;</li>
+<li>arr: 当前数组本身;</li>
+<li>该函数必须返回一个值, 否则将没有意义;</li>
+</ul>
+</blockquote>
+<p>实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapFunc</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value*value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = arr.map(mapFunc);</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// =&gt; [ 1, 4 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// =&gt; [ 1, 2 ]</span></span><br></pre></td></tr></table></figure></p>
+<p>从输出可以看出, map返回的是一个新数组, 并不修改调用的原数组, 上述实例相当于:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接上例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myMap</span>(<span class="params">a, func</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> c = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</span><br><span class="line">    c[i] = func(arr[i], i, a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(myMap(arr, mapFunc));</span><br></pre></td></tr></table></figure></p>
+<p>另外需要注意的是, 如果是稀疏数组, 返回的也是相同方式的稀疏数组, 具有相同的长度, 相同的确实元素;</p>
+<h3 id="filter-过滤"><a href="#filter-过滤" class="headerlink" title="filter - 过滤"></a>filter - 过滤</h3><blockquote>
+<p>arr.filter(func);</p>
+</blockquote>
+<p>返回的数组元素时调用数组的一个子集(包含参数func返回为true的元素), 不改变原数组,<br>参数func的原形和上述forEach是一样的, 只是需要返回值:</p>
+<blockquote>
+<p>function func(value[, index[, arr]]);</p>
+</blockquote>
+<p>参数含义:</p>
+<blockquote>
+<ul>
+<li>value: 数组元素值;</li>
+<li>index: 元素索引;</li>
+<li>arr: 当前数组本身;</li>
+<li>该函数返回一个布尔值, 确定filter返回数组中是否包含对应元素;</li>
+</ul>
+</blockquote>
+<p>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapFunc</span>(<span class="params">value, index, arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = arr.filter(mapFunc)</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// =&gt; [4,5]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// =&gt; [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></p>
+<p>执行结果相当于以下函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接上例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFilter</span>(<span class="params">a, func</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> c = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(func(arr[i], i, a))</span><br><span class="line">      c.push(a[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(myFilter(arr, mapFunc));  <span class="comment">// =&gt; [4,5]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>: filter会跳过稀疏数组中缺少的元素, 他的返回数组总是稠密的;</p>
+<h3 id="every和some-检测"><a href="#every和some-检测" class="headerlink" title="every和some - 检测"></a>every和some - 检测</h3><p>这两个方法用来对数组中的元素应用参数中的函数进行检测</p>
+<blockquote>
+<p>arr.every(func);<br>arr.some(func);</p>
+</blockquote>
+<p>参数func的原形于上述filter是一样的, 这里就不说了;<br>当且仅当针对数组中的所有元素调用判定函数都返回true, every()才返回true;<br>相反, 当且仅当针对数组中的所有元素调用判定函数都返回false, every()才返回false;<br>实例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">value, index, arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params">value, index, arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func3</span>(<span class="params">value, index, arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt;<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//不是所有值都大于3, 所以返回false</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.every(func1)); <span class="comment">// =&gt; false</span></span><br><span class="line"><span class="comment">//所有值都大于0, 所以返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.every(func2)); <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.some(func1)); <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.some(func3)); <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure></p>
+<p>执行结果相当于以下函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接上例</span></span><br><span class="line"><span class="comment">//相当于arr.every</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myEvery</span>(<span class="params">a, func</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!func(arr[i], i, a))</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//相当于arr.some</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mySome</span>(<span class="params">a, func</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(func(arr[i], i, a))</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(myEvery(arr, func1));  <span class="comment">// =&gt; false</span></span><br><span class="line"><span class="built_in">console</span>.log(myEvery(arr, func2));  <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(mySome(arr, func1));  <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(mySome(arr, func3));  <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>: 这两个方法不会遍历所有元素, 一旦确认返回值, 就会停止遍历(类似于上述我写的myEvery和mySome);</p>
+<h3 id="reduce和reduceRight-简化"><a href="#reduce和reduceRight-简化" class="headerlink" title="reduce和reduceRight - 简化"></a>reduce和reduceRight - 简化</h3><blockquote>
+<p>arr.reduce(func[, initValue])<br>arr.reduceRight(func[, initValue])</p>
+</blockquote>
+<p>这两个方法会使用参数中的函数将数组元素进行组合, 并返回单个元素;</p>
+<blockquote>
+<ul>
+<li>func: 用于合并的函数;</li>
+<li>initValue: 合并前的初始值, 此值会作为func第一次被调用时的第一个参数</li>
+</ul>
+</blockquote>
+<p>reduce从数组的正方向(0/1/2…..length-1)开始,reduceRight从数组的反方向(length-1/length-2/…..0)开始 </p>
+<p>func原形</p>
+<blockquote>
+<p>function func(lastResult, value);</p>
+</blockquote>
+<p>参数含义</p>
+<blockquote>
+<ul>
+<li>lastResult: 上轮计算的结果, 第一次调用时, 此值为initValue(<em>reduce的第二个参数, 如果有</em> )或者arr<a href="*当没有传入initValue时, 会取数组的第一个元素, 如果是reduceRight, 为最后一个元素*">0</a></li>
+<li>value: 当前轮的元素值</li>
+</ul>
+</blockquote>
+<p>实例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">lastResult, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> lastResult + value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr.reduce(func1)); <span class="comment">// =&gt; 15</span></span><br></pre></td></tr></table></figure></p>
+<p>对应的js实现:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myReduce</span>(<span class="params">a, func, initValue</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> rtn = initValue || a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = initValue?<span class="number">0</span>:<span class="number">1</span>; i &lt; a.length; i++)&#123;</span><br><span class="line">    rtn = func(rtn, a[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> rtn;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myReduceRight</span>(<span class="params">a, func, initValue</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> rtn = initValue || a[a.length - <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = initValue?(a.length - <span class="number">1</span>):(a.length - <span class="number">2</span>); i &gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">    rtn = func(rtn, a[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> rtn;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(myReduce(arr, func1,<span class="number">0</span>));  <span class="comment">// =&gt; 15</span></span><br><span class="line"><span class="built_in">console</span>.log(myReduceRight(arr, func1,<span class="number">0</span>));  <span class="comment">// =&gt; 15</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="indexOf和lastIndexOf-搜索"><a href="#indexOf和lastIndexOf-搜索" class="headerlink" title="indexOf和lastIndexOf - 搜索"></a>indexOf和lastIndexOf - 搜索</h3><blockquote>
+<p>arr.indexOf(value);<br>arr.lastIndexOf(value);</p>
+</blockquote>
+<p>搜索整个数组中具有给定值(value)的元素, 并返回第一次找到的元素所在的索引, 如果没有找到返回-1;<br>有些朋友可能记得字符串对象中有这两个方法, 其实这里的用法和字符串是一样的<br>下面直接看实例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="number">2</span>)); <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.lastIndexOf(<span class="number">2</span>)); <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure></p>
+<p>对应js实现<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myIndexOf</span>(<span class="params">a, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i] === value)&#123;</span><br><span class="line">      <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myLastIndexOf</span>(<span class="params">a, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = a.length - <span class="number">1</span>; i &gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i] === value)&#123;</span><br><span class="line">      <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(myIndexOf(arr, <span class="number">2</span>));  <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">console</span>.log(myLastIndexOf(arr, <span class="number">2</span>));  <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Array-isArray-判断对象是否为数组对象"><a href="#Array-isArray-判断对象是否为数组对象" class="headerlink" title="Array.isArray - 判断对象是否为数组对象"></a>Array.isArray - 判断对象是否为数组对象</h3><p>这是一个静态方法, 用来判断参数是否为数组对象, 例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray([]));  <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(&#123;&#125;)); <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure></p>
+<p>对应的js实现代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isArray = <span class="built_in">Function</span>.isArray || <span class="function"><span class="keyword">function</span> (<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> o === <span class="string">"object"</span> &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(o) === <span class="string">"[object Array]"</span>;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="built_in">console</span>.log(isArray([]));  <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(isArray(&#123;&#125;)); <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/01/AngularJS-repeat-finished/">
+                    AngularJS中ng-repeat渲染完成事件和中间变量的引用
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach-遍历"><span class="toc-number">1.</span> <span class="toc-text">forEach - 遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map-映射"><span class="toc-number">2.</span> <span class="toc-text">map - 映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter-过滤"><span class="toc-number">3.</span> <span class="toc-text">filter - 过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#every和some-检测"><span class="toc-number">4.</span> <span class="toc-text">every和some - 检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce和reduceRight-简化"><span class="toc-number">5.</span> <span class="toc-text">reduce和reduceRight - 简化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf和lastIndexOf-搜索"><span class="toc-number">6.</span> <span class="toc-text">indexOf和lastIndexOf - 搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-isArray-判断对象是否为数组对象"><span class="toc-number">7.</span> <span class="toc-text">Array.isArray - 判断对象是否为数组对象</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/04/12/ecmascript5-array-method/" data-title="ECMAScript 5中的数组方法" data-url="http://jicemoon.github.io/2016/04/12/ecmascript5-array-method/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jicemoon"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/01/AngularJS-repeat-finished/" title="下一篇: AngularJS中ng-repeat渲染完成事件和中间变量的引用">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/12/ecmascript5-array-method/">ECMAScript 5中的数组方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/AngularJS-repeat-finished/">AngularJS中ng-repeat渲染完成事件和中间变量的引用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/01/Javascript-date-format/">Javascript-date-format</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/javascriptLoad/">Web动态加载JS外部文件(script标签)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/js-bit-operator/">Javascript中的位运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/HexoDocs/">Hexo Docs基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/CSS-middle/">CSS垂直居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/html5-game-hardestGame/">HTML5游戏 - 见缝插针</a></li></ul>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 jicemoon
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
