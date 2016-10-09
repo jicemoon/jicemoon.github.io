@@ -7,8 +7,8 @@
   <style>
     a{
       display: block;
-      width:50px;
-      height: 20px;
+      width:200px;
+      height: 60px;
       background-color: #999999;
     }
   </style>
@@ -18,10 +18,12 @@
   <script>
     var element = $("a")[0];
     var url = 'readFile.swf';
-    var str = '<object type="application/x-shockwave-flash" data="' + url + '" style="display:none;" width="165" height="30" id="ReadFileSwf">'
+    var str = '<object type="application/x-shockwave-flash" data="' + url + '" style="display:block;" width="165" height="30" id="ReadFileSwf">'
+            + '<param name="allowScriptAccess" value="always" />'
             + '<param name="quality" value="high">'
             + '<param name="wmode" value="transparent">'
             + '<param name="movie" value="' + url + '">'
+           // + '<embed src="' + url + '" name="ReadFileSwf" quality="high" allowScriptAccess="always"  swLiveConnect="true" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"   width="165" height="30"></embed>'
             + '</object>';
     $(element).html(str);
     var obj = document.getElementById("ReadFileSwf");//$(element).find("object")[0];
